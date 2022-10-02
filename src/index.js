@@ -3,11 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { StateProvider } from './StateProvider';
+import reducer,{ initialState } from './reducer';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <StateProvider initialState={initialState} reducer={reducer}> {/* initialState is how the datalayer will look like initailly and reducer is how will we manipulate it, reducer is basically how and item goes into the datalayer and how we pull it in the cart */}
+      <App />
+    </StateProvider>
   </React.StrictMode>
 );
 
